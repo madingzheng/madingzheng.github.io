@@ -8,12 +8,12 @@
   
   
   
-  <title>马定争的个人博客</title>
+  <title>JS中的异步 | 马定争的个人博客</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="Hexo, theme-bmw">
+    <meta name="keywords" content="HelloWorld,helloworld,">
   
 
   <script>
@@ -169,157 +169,126 @@
 </script>
 
       
-<div class="container home-index">
-  
-  <div class="post">
-    <h1 class="article-title">
-      <a href="/passages/JS中的异步/">
-        <span>JS中的异步</span>
-      </a>
-    </h1>
-    <!-- PC端文章信息 -->
-    <div class="article-top-meta pc-view">
-      <span>
-        发布时间 : 2019-01-22
-      </span>
-    </div>
-    <!-- 移动端文章信息 -->
-    <div class="article-top-meta mobile-view">
-      <span>
-        发布 : 2019-01-22
-      </span>
-      
-        <span>
-        分类 :
-          <a href="/categories/HelloWorld/">
-            HelloWorld
-          </a>
-        </span>
-      
-      
-        <span>
-          浏览 : <span class="article-timer" data-identity="JS中的异步"></span>
-        </span>
-      
-    </div>
-    
-    <!-- 文章简介 -->
-    <div class="article-content">
-      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
-        <p>为什么js会有异步呢？</p>
-      </div>
-    </div>
-    <div class="article-footer">
-      <div class="article-meta pull-left">
-        <!-- 分类pc端可见 -->
-        <span class="pc-view">
-          
-            <i class="iconfont icon-tag"></i>分类:
-            <a href="/categories/HelloWorld/">
-              HelloWorld
-            </a>
-          </span>
-          
-        <span>
-          
-            <i class="iconfont icon-06tags"></i>标签:
-            
-              <span class="span--tag">
-                <a href="/tags/helloworld/">
-                  #helloworld
-                </a>
-              </span>
-            
-                    
-        </span>
-      </div>
-      
-        <div class="article-meta pull-right">
-          <span class="pc-view">
-            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="JS中的异步"></span>
-          </span>
-        </div>
-      
-    </div>
-  </div>
-  
-  <div class="post">
-    <h1 class="article-title">
-      <a href="/passages/hello-world/">
-        <span>HelloWorld</span>
-      </a>
-    </h1>
-    <!-- PC端文章信息 -->
-    <div class="article-top-meta pc-view">
-      <span>
-        发布时间 : 2018-09-06
-      </span>
-    </div>
-    <!-- 移动端文章信息 -->
-    <div class="article-top-meta mobile-view">
-      <span>
-        发布 : 2018-09-06
-      </span>
-      
-        <span>
-        分类 :
-          <a href="/categories/HelloWorld/">
-            HelloWorld
-          </a>
-        </span>
-      
-      
-        <span>
-          浏览 : <span class="article-timer" data-identity="hello-world"></span>
-        </span>
-      
-    </div>
-    
-    <!-- 文章简介 -->
-    <div class="article-content">
-      <div class="markdown-body article-content--inner" v-html="mdToHtml(psg.summary)">
-        <p> 试试hexo + github + 自己的域名能否使用<br>
-      </p></div>
-    </div>
-    <div class="article-footer">
-      <div class="article-meta pull-left">
-        <!-- 分类pc端可见 -->
-        <span class="pc-view">
-          
-            <i class="iconfont icon-tag"></i>分类:
-            <a href="/categories/HelloWorld/">
-              HelloWorld
-            </a>
-          </span>
-          
-        <span>
-          
-            <i class="iconfont icon-06tags"></i>标签:
-            
-              <span class="span--tag">
-                <a href="/tags/helloworld/">
-                  #helloworld
-                </a>
-              </span>
-            
-                    
-        </span>
-      </div>
-      
-        <div class="article-meta pull-right">
-          <span class="pc-view">
-            <i class="iconfont icon-view"></i>浏览: <span class="article-timer" data-identity="hello-world"></span>
-          </span>
-        </div>
-      
-    </div>
-  </div>
+
+
+
+
+
+
+
+
+<div class="container post-index">
+
   
 
-  <nav class="page-navigation">
+<div class="post">
+  <h1 class="article-title">
+    <span>JS中的异步</span>
+  </h1>
+  <div class="article-top-meta">
+    <span>
+      发布 : 
+      2019-01-22
+    </span>
+    
+      <span>
+        分类 : 
+          <a href="/categories/HelloWorld/">
+            HelloWorld
+          </a>
+      </span>
+    
+    
+      <span>
+        浏览 : <span class="article-timer" data-identity="JS中的异步"></span>
+      </span>
+    
+  </div>
+
+  
+
+  <div class="article-content">
+    <div class="markdown-body">
+      <h4 id="1-JS为何有异步"><a href="#1-JS为何有异步" class="headerlink" title="1.JS为何有异步"></a>1.JS为何有异步</h4><p><em><strong>JavaScript是单线程语言</strong></em>。所谓的单线程就是程序在执行时，是有顺序的，前面的必须处理好，后面的才会执行。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i, t = <span class="built_in">Date</span>.now()</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">100000000</span>; i++) &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Date</span>.now() - t)  <span class="comment">// 240</span></span><br></pre></td></tr></table></figure></p>
+<p>运行上面代码发现时间，这段程序话费了240ms时间来运行。执行过程中js并不会去执行其他代码。但是如果有一种情况，可能会有大量的网络请求，而一个网络资源啥时候返回，这个时间是不可预估的。那也要花费时间去等待嘛，很显然不合理。</p>
+<h4 id="2-异步代码的实现"><a href="#2-异步代码的实现" class="headerlink" title="2.异步代码的实现"></a>2.异步代码的实现</h4><p>最常见的网络请求：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">axios.get(<span class="string">'/user?ID=12345'</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br><span class="line">.catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>里面的<code>console.log(res)</code>、<code>console.log(err)</code>并不会马上执行。会在请求成功或者失败后执行。对于这种传递过去不执行，等出来结果之后再执行的函数，叫做callback，即回调函数。</p>
+<h4 id="3-开发中常见的异步操作"><a href="#3-开发中常见的异步操作" class="headerlink" title="3.开发中常见的异步操作"></a>3.开发中常见的异步操作</h4><ul>
+<li>网络请求，如ajax http.get</li>
+<li>定时函数，如setTimeout setInterval</li>
+<li>……<h4 id="4-ES6中的Promise"><a href="#4-ES6中的Promise" class="headerlink" title="4.ES6中的Promise"></a>4.ES6中的Promise</h4>使用Promise可以完成异步操作<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">res, rej</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Promise'</span>)</span><br><span class="line">    res()</span><br><span class="line">    rej()</span><br><span class="line">&#125;).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'resolved!!!'</span>)</span><br><span class="line">&#125;).catch(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'reject!!!'</span>)</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'Hi!'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// log: Promise -&gt; Hi! -&gt; resolved!!!</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Promise对象有三种状态:<code>pending（进行中）</code>、<code>fulfilled（已成功）</code>、<code>rejected（已失败）</code>。所以Promise只有两种情况从<code>pending</code>变为<code>fulfilled</code>和从<code>pending</code>变为<code>rejected</code>。</p>
+<h4 id="5-async-await"><a href="#5-async-await" class="headerlink" title="5.async await"></a>5.async await</h4><p>在项目中，需要等待网络请求然后执行某个函数，所以可以在外面使用async await。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">getHost</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> url = <span class="string">'......'</span></span><br><span class="line">  <span class="keyword">const</span> result = <span class="keyword">await</span> axios.get(url)</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve(result)</span><br><span class="line">&#125;</span><br><span class="line">返回<span class="built_in">Promise</span>对象。可以用<span class="string">`.then`</span>调用</span><br></pre></td></tr></table></figure></p>
+    </div>
+  </div>
+  
+  
+  
+
+  
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+      <span>
+        
+          <i class="iconfont icon-06tags"></i>标签: 
+          
+          <span class="span--tag">
+            <a href="/tags/helloworld/">
+              #helloworld
+            </a>
+          </span>
+          
+        
+      </span>
+    </div>
+    <div class="article-meta pull-right">
+    </div>
+  </div>
+</div>
+
+
+  <aside id="sidebar">
+    <p id="sidebar-header"></p>
+    <ol id="sidebar-toc"></ol>
+  </aside>
+  <script async>setTimeout(generateToc, 10);</script>
+
+
+  <nav class="post-navigation">
+    
+      <div class="nav-pre">
+        <i class="iconfont icon-prev"></i>
+        上一篇:
+        <a href="/passages/hello-world/" target="_self">HelloWorld</a>
+      </div>
     
     
   </nav>
+
+  
+    <a href="#comment" class="comment-anchor"></a>
+<div class="comment-title"><i class="iconfont icon-footprint"></i> 留下足迹 <i class="iconfont icon-footprint"></i></div>
+<div id="vcomments"></div>
+
+<script defer>
+  if( true ) {
+    let path = getRealPath()
+    new Valine({
+      el: "#vcomments",
+      appId: "9qIz4sG4DDkuAGBQtT8prcxW-gzGzoHsz",
+      appKey: "QUSxj89xfcWxQVnDRXMJeBet",
+      notify: false,
+      verify: false,
+      avatar: "robohash",
+      placeholder: "正确填写邮箱, 才能及时收到回复哦♪(^∇^*)",
+      path
+    });
+  }
+</script>
+   
 
   
     <script defer>
@@ -394,7 +363,7 @@ const valineAPI = (() => {
 })()
 
 const calcAndWriteTimes = () => {
-  let isPost = false;
+  let isPost = true;
 
   let timerAllDOM = document.querySelectorAll(".article-timer");
 
@@ -449,6 +418,7 @@ if(true){
 }
 </script>
    
+
 </div>
 
 
