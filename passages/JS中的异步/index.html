@@ -8,7 +8,7 @@
   
   
   
-  <title>JS中的异步 | 马定争的个人博客</title>
+  <title>JS中的异步1 | 马定争的个人博客</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -183,7 +183,7 @@
 
 <div class="post">
   <h1 class="article-title">
-    <span>JS中的异步</span>
+    <span>JS中的异步1</span>
   </h1>
   <div class="article-top-meta">
     <span>
@@ -209,7 +209,8 @@
 
   <div class="article-content">
     <div class="markdown-body">
-      <h4 id="1-JS为何有异步"><a href="#1-JS为何有异步" class="headerlink" title="1.JS为何有异步"></a>1.JS为何有异步</h4><p><em><strong>JavaScript是单线程语言</strong></em>。所谓的单线程就是程序在执行时，是有顺序的，前面的必须处理好，后面的才会执行。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i, t = <span class="built_in">Date</span>.now()</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">100000000</span>; i++) &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Date</span>.now() - t)  <span class="comment">// 240</span></span><br></pre></td></tr></table></figure></p>
+      <p><img src="https://img-1256907623.cos.ap-chengdu.myqcloud.com/d363e94eeb511d8f031213518fb8be15-c858de0f-192e-4d9e-8ba7-5d0be3a58761.JPG" alt="d363e94eeb511d8f031213518fb8be15-c858de0f-192e-4d9e-8ba7-5d0be3a58761"></p>
+<h4 id="1-JS为何有异步"><a href="#1-JS为何有异步" class="headerlink" title="1.JS为何有异步"></a>1.JS为何有异步</h4><p><em><strong>JavaScript是单线程语言</strong></em>。所谓的单线程就是程序在执行时，是有顺序的，前面的必须处理好，后面的才会执行。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i, t = <span class="built_in">Date</span>.now()</span><br><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">100000000</span>; i++) &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Date</span>.now() - t)  <span class="comment">// 240</span></span><br></pre></td></tr></table></figure></p>
 <p>运行上面代码发现时间，这段程序话费了240ms时间来运行。执行过程中js并不会去执行其他代码。但是如果有一种情况，可能会有大量的网络请求，而一个网络资源啥时候返回，这个时间是不可预估的。那也要花费时间去等待嘛，很显然不合理。</p>
 <h4 id="2-异步代码的实现"><a href="#2-异步代码的实现" class="headerlink" title="2.异步代码的实现"></a>2.异步代码的实现</h4><p>最常见的网络请求：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">axios.get(<span class="string">'/user?ID=12345'</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br><span class="line">.catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <p>里面的<code>console.log(res)</code>、<code>console.log(err)</code>并不会马上执行。会在请求成功或者失败后执行。对于这种传递过去不执行，等出来结果之后再执行的函数，叫做callback，即回调函数。</p>
