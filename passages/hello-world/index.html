@@ -206,11 +206,31 @@
   </div>
 
   
+    <div id="hello-world" style="margin: 4rem 2px"></div>
+<script async>
+  (function(){
+    let playerTimer = setInterval(function(){
+      if(!window.APlayer){
+        return
+      }
+
+      new APlayer({
+        container: document.getElementById('hello-world'),
+        theme: '#e96900',
+        listFolded: false,
+        audio: [{"name":"Where are you","artist":"AniFace","url":"//music.163.com/song/media/outer/url?id=453843751.mp3","cover":"//p1.music.126.net/AUfXMljLBgB3PBV731IzRg==/109951162857118370.jpg?param=130y130"}]
+      });
+      
+      clearInterval(playerTimer)
+    }, 10);
+  })()
+</script>
+  
 
   <div class="article-content">
     <div class="markdown-body">
       <p></p>
-<p> -&gt; 试试hexo + github + 自己的域名能否使用。<br>playlist:<br>  -<br>    name: Where are you<br>    artist: AniFace<br>    url: “//music.163.com/song/media/outer/url?id=453843751.mp3”<br>    cover: “//p1.music.126.net/AUfXMljLBgB3PBV731IzRg==/109951162857118370.jpg?param=130y130”<br>&lt;!– —<br>title: 文章标题<br>date: 文章创建日期<br>categories: 文章分类<br>tags:</p>
+<p> -&gt; 试试hexo + github + 自己的域名能否使用。<br>&lt;!– —<br>title: 文章标题<br>date: 文章创建日期<br>categories: 文章分类<br>tags:</p>
 <ul>
 <li>文章标签1</li>
 <li>文章标签2</li>
